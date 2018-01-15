@@ -1,0 +1,9 @@
+version: '2'
+services:
+    web:
+        image: shivergard/scrape-mare
+        ports:
+            - 80:80
+        volumes:
+             - ./:/opt/scrapemare
+        command: 'tail -f /dev/null'
