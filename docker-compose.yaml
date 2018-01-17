@@ -3,7 +3,7 @@ services:
     web:
         image: shivergard/scrape-mare
         ports:
-            - 80:80
+            - 80:8686
         volumes:
              - ./:/opt/scrapemare
-        command: 'tail -f /dev/null'
+        command: 'node /opt/scrapemare/src/bin/www'
