@@ -1,7 +1,7 @@
-#ScrapeMare
+*ScrapeMare*
 
 
-##API Documentation
+**API Documentation**
 
 
 **Get Barcode Info**
@@ -51,5 +51,5 @@
     });
   ```
 
-#Thanks
+* Thanks
 [julionc](https://gist.github.com/julionc/7476620)
