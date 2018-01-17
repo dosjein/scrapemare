@@ -20,6 +20,10 @@ router.get('/v1/demand_scrape', function(req, res, next) {
 
 	if (nightMareBussy){
 		returnVal.error = 'NightMare bussy';
+
+	    setTimeout(function(){ 
+			nightMareBussy = false;
+	    }, 30000);
 	}else if (req.query.scrape_url){
 		returnVal.status = 1;
 
