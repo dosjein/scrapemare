@@ -6,6 +6,7 @@ MAINTAINER Ronalds Sovas <sovas@dosje.in>
 RUN mkdir /opt/scrapemare
 
 ADD src /opt/scrapemare/src
+ADD readme.md /opt/scrapemare/readme.md
 
 RUN npm install -g nightmarejs && \
 	apt-get update && \
