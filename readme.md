@@ -22,7 +22,9 @@
  
    `scrape_url=[string]`
 
-   `web_hook_url=[string]`
+   `wait_element=[string]`
+
+   `wait_time=[integer]`
 
 * **Data Params**
 
@@ -35,8 +37,8 @@
  
 * **Error Response:**
 
-  * **Code:** 404 NOT FOUND <br />
-    **Content:** `{"status":0}`
+  * **Code:** 200 <br />
+    **Content:** `{"status":0 , 'error': 'NightMare bussy'}`
 
 * **Sample Call:**
 
