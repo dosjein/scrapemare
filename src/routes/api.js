@@ -124,6 +124,7 @@ function runNightMare(scrapeUrl , webHook , reqid , waitElement , waitTime){
 	  }).then(function(body){
 	    var $ = cheerio.load(body);
 	    requestHolder[reqid] = body;
+	    requestHolder[scrapeUrl] = body;
 
 	    //update results for a short period
 	    console.log('Got Results !!! ');
@@ -131,6 +132,7 @@ function runNightMare(scrapeUrl , webHook , reqid , waitElement , waitTime){
 	    setTimeout(function(){ 
 	    	nightmare.screenshot(screenRoot + '/' + md5(reqid)+'_2').then(function(body){
 			    requestHolder[reqid] = body;
+			    requestHolder[scrapeUrl] = body;
 			    nightMareBussy = false;
 		    });
 	    }, waitTime);
