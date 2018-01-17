@@ -36,6 +36,7 @@ router.get('/v1/demand_scrape', function(req, res, next) {
 		returnVal.url = req.query.scrape_url;
 
 		returnVal.resultUrl = '/v1/results?reqid=' + returnVal.reqid;
+		returnVal.urlResultUrl = '/v1/results?reqid=' + returnVal.scrape_url;
 
 		console.log(req.query);
 
@@ -75,13 +76,25 @@ router.get('/v1/results', function(req, res, next) {
 		returnVal.result_html = requestHolder[req.query.reqid];
 
 		//may-be I am an idiot , but I think it should stay
-		setTimeout(function(){ 
-			delete requestHolder[req.query.reqid];
-		}, 60000);
+		// setTimeout(function(){ 
+		// 	delete requestHolder[req.query.reqid];
+		// }, 60000);
 
 	}else{
 		returnVal.vacant = requestHolder;
 	}
+
+	res.setHeader('Content-Type', 'application/json');
+	res.send(JSON.stringify(returnVal));
+
+});
+
+//clear data
+router.get('/v1/clear', function(req, res, next) {
+
+	var returnVal = { status: 0 };
+
+	requestHolder = {};
 
 	res.setHeader('Content-Type', 'application/json');
 	res.send(JSON.stringify(returnVal));
@@ -122,6 +135,7 @@ function runNightMare(scrapeUrl , webHook , reqid , waitElement , waitTime){
       .evaluate(function(){
 		return document.body.innerHTML;
 	  }).then(function(body){
+	    console.log('first data filled ['+reqid+''+scrapeUrl+']');
 	    var $ = cheerio.load(body);
 	    requestHolder[reqid] = body;
 	    requestHolder[scrapeUrl] = body;
@@ -131,6 +145,7 @@ function runNightMare(scrapeUrl , webHook , reqid , waitElement , waitTime){
 
 	    setTimeout(function(){ 
 	    	nightmare.screenshot(screenRoot + '/' + md5(reqid)+'_2').then(function(body){
+	    		console.log('full data filled  ['+reqid+''+scrapeUrl+']');
 			    requestHolder[reqid] = body;
 			    requestHolder[scrapeUrl] = body;
 			    nightMareBussy = false;
