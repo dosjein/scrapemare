@@ -20,7 +20,7 @@
 
    **Required:**
  
-   `url=[string]`
+   `scrape_url=[string]`
 
    `web_hook_url=[string]`
 

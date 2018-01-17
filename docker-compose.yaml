@@ -6,4 +6,4 @@ services:
             - 80:8686
         volumes:
              - ./:/opt/scrapemare
-        command: 'node /opt/scrapemare/src/bin/www'
+        command: '/opt/scrapemare/run.sh'
