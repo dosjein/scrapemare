@@ -8,6 +8,7 @@ RUN mkdir /opt/scrapemare
 ADD src /opt/scrapemare/src
 ADD readme.md /opt/scrapemare/readme.md
 ADD run.sh /opt/scrapemare/run.sh
+ADD run_debug.sh /opt/scrapemare/run_debug.sh
 
 RUN npm install -g nightmarejs && \
 	apt-get update && \

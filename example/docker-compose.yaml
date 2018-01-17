@@ -4,4 +4,4 @@ services:
         image: shivergard/scrape-mare
         ports:
             - 80:8686
-        command: '/opt/scrapemare/run.sh'
+        command: '/opt/scrapemare/run_debug.sh'
