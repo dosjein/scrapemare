@@ -1,10 +1,12 @@
 *ScrapeMare*
 
+* Thanks
+[julionc](https://gist.github.com/julionc/7476620)
 
 **API Documentation**
 
 
-**Get Barcode Info**
+**Request Scrape Work**
 ----
   Reguest scrape Url.
 
@@ -53,5 +55,45 @@
     });
   ```
 
-* Thanks
-[julionc](https://gist.github.com/julionc/7476620)
+**Request Scrape Results**
+----
+  Reguest scrape Url.
+
+* **URL**
+
+  /api/v1/results
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+  none
+
+* **Data Params**
+
+  none
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{"status":1 ,"vacant":{ req_id : 'html scraped'}}`
+ 
+* **Error Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{"status":0 }`
+
+* **Sample Call:**
+
+  ```javascript
+    $.ajax({
+      url: "/api/v1/results",
+      dataType: "json",
+      type : "GET",
+      success : function(r) {
+        console.log(r);
+      }
+    });
+  ```

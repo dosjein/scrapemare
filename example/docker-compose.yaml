@@ -1,0 +1,7 @@
+version: '2'
+services:
+    web:
+        image: shivergard/scrape-mare
+        ports:
+            - 80:8686
+        command: 'xvfb-run -a node --harmony opt/scrapemare/src/bin/www'
