@@ -36,7 +36,7 @@ router.get('/v1/demand_scrape', function(req, res, next) {
 		returnVal.url = req.query.scrape_url;
 
 		returnVal.resultUrl = '/v1/results?reqid=' + returnVal.reqid;
-		returnVal.urlResultUrl = '/v1/results?reqid=' + returnVal.scrape_url;
+		returnVal.urlResultUrl = '/v1/results?reqid=' + returnVal.url;
 
 		console.log(req.query);
 
